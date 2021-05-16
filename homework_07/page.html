@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #rectangleWrapper {
+            padding: 50px 50px 0px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>a name for my page</h1>
+    <h2>a description of what's on the page</h2>
+    <div id='rectangleWrapper'></div>
+    <script>
+        let rectangleWrapper = document.getElementById('rectangleWrapper');
+        for (let i = 1; i <= 10; i++) {
+            let rect = document.createElement('div');
+            rect.style.height = Math.floor(Math.random() * 200) + 'px';
+            rect.style.width = Math.floor(Math.random() * 200) + 'px';
+            rect.style.border = '2px solid rgb(' + Math.floor(Math.random() * 255) + ', ' + Math.floor(Math.random() * 255) + ', ' + Math.floor(Math.random() * 255);
+            rect.id = i;
+            rect.className = 'rectangle';
+            rectangleWrapper.appendChild(rect);
+        }
+        let rectangles = document.getElementsByClassName('rectangle');
+        let listID = [];
+        for (let i = 0; i < rectangles.length; i++) {
+            listID.push(rectangles[i].id);
+        }
+        console.log('Here are the rectangle IDs: ' + listID.toString());
+        document.head.title = document.getElementsByTagName('h1')[0].textContent;
+    </script>
+</body>
+
+</html>
